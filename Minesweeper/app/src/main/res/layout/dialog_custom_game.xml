@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="200dp"
+    android:background="@drawable/rounded_boarder"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:src="@drawable/custom_game"
+        android:inputType="number"
+        />
+
+    <com.balsdon.minesweeper.view.ValidateEditText
+        android:id="@+id/dialog_custom_game_width"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:hint="@string/custom_width"
+        android:inputType="number"
+        />
+    <com.balsdon.minesweeper.view.ValidateEditText
+        android:id="@+id/dialog_custom_game_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:hint="@string/custom_height"
+        android:inputType="number"
+        />
+    <com.balsdon.minesweeper.view.ValidateEditText
+        android:id="@+id/dialog_custom_game_bombs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:hint="@string/custom_bombs"
+        android:inputType="number"
+        />
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/dialog_custom_game_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/board.button"
+        android:text="@string/done"/>
+
+</LinearLayout>

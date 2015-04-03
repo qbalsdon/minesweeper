@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="number">#fff</color>
+    <color name="tile_base">#08ea32</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="one">#FFFF11</color>
+    <color name="two">#FFBB55</color>
+    <color name="three">#FF9977</color>
+    <color name="four">#FF7799</color>
+    <color name="five">#FF5513</color>
+    <color name="six">#FF4421</color>
+    <color name="seven">#FF3328</color>
+    <color name="eight">#FF2200</color>
+
+    <color name="red">#FF0000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#00FF00</color>
+    <color name="light_blue">#00aaFF</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="flag">#44ccff</color>
+
+    <color name="cheat_color">#b19fff</color>
+</resources>

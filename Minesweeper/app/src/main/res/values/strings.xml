@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Minesweeper</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_new_game">New Game</string>
+    <string name="action_about">About</string>
+    <string name="validate">VALIDATE</string>
+    <string name="finish_success">You WIN!</string>
+    <string name="finish_failure">Oh no!</string>
+    <string name="not_enough_flags">Not enough flags yet!</string>
+    <string name="flags_left">F</string>
+    <string name="custom_width">Width</string>
+    <string name="custom_height">Height</string>
+    <string name="custom_bombs">Bombs</string>
+    <string name="done">DONE</string>
+    <string name="action_custom">Custom</string>
+    <string name="about_text">Written and developed by Quintin Balsdon. I really hope you guys enjoy it!!</string>
+    <string name="about_references">References:</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="required">Required</string>
+    <string name="invalid_number">Must be a number</string>
+    <string name="value_too_small">Too small</string>
+    <string name="value_too_large">Too large</string>
+    <string name="too_hard">Hardcore!! But I like you too much to let you do that</string>
+
+
+    <string-array name="thank_you">
+        <item>http://code.tutsplus.com/tutorials/animate-a-cartoon-explosion-with-flash-professional-basix#8212active-9495</item>
+        <item>http://funny-pictures.picphotos.net/aqua-smiles-xp-icons/freeiconsdownload.com*site-images*too_big*aqua-smiles-xp.jpg/</item>
+        <item>http://www.freepik.com/free-vector/golden-medals-and-trophies-vector_719921.htm</item>
+        <item>http://imgbuddy.com/tick-cross-icon-png.asp</item>
+    </string-array>
+</resources>

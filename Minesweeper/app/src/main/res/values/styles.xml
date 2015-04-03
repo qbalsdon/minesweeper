@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="board.small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="board.button">
+        <item name="android:textSize">@dimen/board_text_size</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+    <style name="board">
+        <item name="android:textSize">@dimen/board_text_size</item>
+        <item name="android:textColor">@color/tile_base</item>
+    </style>
+    <style name="board.flag">
+        <item name="android:textColor">@color/flag</item>
+    </style>
+
+</resources>
