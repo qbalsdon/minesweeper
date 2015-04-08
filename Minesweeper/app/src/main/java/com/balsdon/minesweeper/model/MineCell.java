@@ -47,6 +47,7 @@ public class MineCell implements Parcelable{
         } else {
             mCellValue = 0;
         }
+        if (mViewHolder!=null)mViewHolder.updateView();
     }
 
     public boolean isFlagged(){
@@ -62,12 +63,25 @@ public class MineCell implements Parcelable{
 
     public void makeMine(){
         mCellValue = MINE;
+        if (mViewHolder!=null)mViewHolder.updateView();
+    }
+    public void makeZero(){
+        mCellValue = 0;
+        if (mViewHolder!=null)mViewHolder.updateView();
     }
 
     public void increment(){
         if (mCellValue < MAX){
             mCellValue++;
         }
+        if (mViewHolder!=null)mViewHolder.updateView();
+    }
+
+    public void decrement(){
+        if (mCellValue > 0 && mCellValue != MINE){
+            mCellValue--;
+        }
+        if (mViewHolder!=null)mViewHolder.updateView();
     }
 
     public MineCell(Parcel in){

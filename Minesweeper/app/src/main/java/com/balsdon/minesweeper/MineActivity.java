@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -131,6 +132,7 @@ public class MineActivity extends Activity {
 
     private void createNewGame() {
         ((ImageButton)findViewById(R.id.activity_mine_validate)).setImageResource(R.drawable.validate_button);
+        findViewById(R.id.dialog).setVisibility(View.GONE);
         mBoardController = new BoardController(mGameHandler);
         updateBoard();
     }
@@ -147,6 +149,21 @@ public class MineActivity extends Activity {
                 mBoardController.open(row, col);
             }
         });
+    }
+
+    private LinearLayout makeScreen(int layoutResourceId){
+        return makeScreen(layoutResourceId, Color.BLACK);
+    }
+
+    private LinearLayout makeScreen(int layoutResourceId, int col){
+        LinearLayout layout = (LinearLayout)findViewById(R.id.dialog);
+        layout.removeAllViews();
+        View content = getLayoutInflater().inflate(layoutResourceId, layout, false);
+
+        layout.addView(content);
+
+        layout.setBackgroundColor(col);
+        return layout;
     }
 
     private Dialog makeDialog(int layoutResourceId){
@@ -174,12 +191,12 @@ public class MineActivity extends Activity {
             editor.apply();
             updateStats();
 
-            Dialog dialog = makeDialog(R.layout.dialog_finish, true);
+            LinearLayout dialog = makeScreen(R.layout.dialog_finish, Color.TRANSPARENT);
 
             dialog.findViewById(R.id.dialog_image_win).setVisibility((success)?View.VISIBLE:View.GONE);
-            dialog.show();
+            dialog.setVisibility(View.VISIBLE);
 
-            ((ImageButton)findViewById(R.id.activity_mine_validate)).setImageResource((success)?R.drawable.win:R.drawable.lose);
+            ((ImageButton)findViewById(R.id.activity_mine_validate)).setImageResource((success) ? R.drawable.win : R.drawable.lose);
         }
 
         @Override
@@ -230,7 +247,6 @@ public class MineActivity extends Activity {
                 }
             }
         });
-
         dialog.show();
     }
 
@@ -259,6 +275,7 @@ public class MineActivity extends Activity {
 
     private void askIfSure(final boolean customNewGame){
         if (mBoardController.isGameOver()) {
+            findViewById(R.id.dialog).setVisibility(View.GONE);
             if (customNewGame)
                 createCustomGame();
             else
@@ -266,7 +283,7 @@ public class MineActivity extends Activity {
             return;
         }
 
-        final Dialog dialog = makeDialog(R.layout.dialog_are_you_sure);
+        final LinearLayout dialog = makeScreen(R.layout.dialog_are_you_sure);
 
         dialog.findViewById(R.id.dialog_sure_yes).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -275,18 +292,18 @@ public class MineActivity extends Activity {
                     createCustomGame();
                 else
                     createNewGame();
-                dialog.dismiss();
+                findViewById(R.id.dialog).setVisibility(View.GONE);
             }
         });
 
         dialog.findViewById(R.id.dialog_sure_no).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                findViewById(R.id.dialog).setVisibility(View.GONE);
             }
         });
 
-        dialog.show();
+        findViewById(R.id.dialog).setVisibility(View.VISIBLE);
     }
 
     private void updateStats(){

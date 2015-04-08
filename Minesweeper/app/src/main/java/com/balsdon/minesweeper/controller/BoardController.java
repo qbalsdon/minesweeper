@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.balsdon.minesweeper.model.MineCell;
 
@@ -12,7 +13,7 @@ import java.util.Random;
 
 public class BoardController implements Parcelable {
     public static int DEFAULT_DIMEN = 8;
-    public static int DEFAULT_BOMBS = 10;
+    public static int DEFAULT_BOMBS = 8;
     public static int RECURSIVE_DELAY = 100;
 
     public static boolean CHEAT_MODE = false;
@@ -119,9 +120,46 @@ public class BoardController implements Parcelable {
         }, RECURSIVE_DELAY * distance);
     }
 
+    private void replaceMine(int row, int col){
+        mBoardData[row][col].makeZero();
+
+        for (int x = row - 1; x <= row + 1; x++){
+            if (x < 0 || x >= mWidth) continue;
+            for (int y = col - 1; y <= col + 1; y++){
+                if (y < 0 || y >= mHeight) continue;
+                if (mBoardData[x][y].isMine()) mBoardData[row][col].increment();
+                else if (x != row && y != col) mBoardData[x][y].decrement();
+            }
+        }
+
+        Random rand = new Random(Calendar.getInstance().getTimeInMillis());
+        int nx = rand.nextInt(mWidth);
+        int ny = rand.nextInt(mHeight);
+
+        while (mBoardData[nx][ny].isMine()) {
+            nx = rand.nextInt(mWidth);
+            ny = rand.nextInt(mHeight);
+        }
+
+        mBoardData[nx][ny].makeMine();
+
+        for (int x = nx - 1; x <= nx + 1; x++){
+            if (x < 0 || x >= mWidth) continue;
+            for (int y = ny - 1; y <= ny + 1; y++){
+                if (y < 0 || y >= mHeight) continue;
+                mBoardData[x][y].increment();
+            }
+        }
+    }
+
     public void open(final int x, final int y){
         if (isGameOver()) return;
         if (mBoardData[x][y].isFlagged() || mBoardData[x][y].isVisible()) return;
+
+        if (mBoardData[x][y].isMine() && mCounter == mWidth*mHeight-mBombs){
+            replaceMine(x,y);
+        }
+
         if (mBoardData[x][y].isMine()) {
             updateMines(x, y, Math.max(mWidth, mHeight), null);
             GAME_OVER = true;

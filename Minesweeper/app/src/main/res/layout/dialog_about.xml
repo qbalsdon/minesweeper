@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:minWidth="300dp"
-    android:background="@drawable/rounded_boarder"
-    android:padding="15dp"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="10dp"
-        android:src="@drawable/about"
-        android:inputType="number"
-        />
+        android:background="@drawable/rounded_boarder"
+        android:minWidth="300dp"
+        android:orientation="vertical"
+        android:padding="15dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="10dp"
-        android:text="@string/about_text"
-        style="@style/board.small"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="10dp"
-        android:text="@string/about_references"
-        style="@style/board.small"
-        />
-    <TextView
-        android:id="@+id/dialog_about_references"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="10dp"
-        android:text="@string/about_references"
-        style="@style/board.small"
-        />
-    <Button
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/dialog_custom_game_done"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/board.button"
-        android:text="@string/done"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:inputType="number"
+            android:paddingBottom="10dp"
+            android:src="@drawable/about" />
 
-</LinearLayout>
+        <TextView
+            style="@style/board.small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="10dp"
+            android:text="@string/about_text" />
+
+        <TextView
+            style="@style/board.small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="10dp"
+            android:text="@string/about_references" />
+
+        <TextView
+            android:id="@+id/dialog_about_references"
+            style="@style/board.small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="10dp"
+            android:text="@string/about_references" />
+
+        <Button
+            android:id="@+id/dialog_custom_game_done"
+            style="@style/board.button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/done" />
+
+    </LinearLayout>
+</ScrollView>
