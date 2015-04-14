@@ -220,6 +220,9 @@ public class BoardController implements Parcelable {
     public int getHeight() {
         return mHeight;
     }
+    public int getBombs() {
+        return mBombs;
+    }
 
     public boolean isGameOver(){
         return GAME_OVER;

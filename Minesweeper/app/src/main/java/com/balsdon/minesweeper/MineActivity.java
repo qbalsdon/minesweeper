@@ -21,6 +21,7 @@ import com.balsdon.minesweeper.controller.BoardController;
 import com.balsdon.minesweeper.view.BoardLayout;
 import com.balsdon.minesweeper.view.NumberValidator;
 import com.balsdon.minesweeper.view.ValidateEditText;
+import com.crashlytics.android.Crashlytics;
 
 
 public class MineActivity extends Activity {
@@ -69,6 +70,10 @@ public class MineActivity extends Activity {
 
         if (savedInstanceState != null){
             mBoardController = savedInstanceState.getParcelable(BOARD);
+            if (mBoardController == null) {
+                createNewGame();
+                return;
+            }
             mBoardController.setGameEventHandler(mGameHandler);
             updateBoard();
             return;
@@ -94,6 +99,7 @@ public class MineActivity extends Activity {
         if (outState == null) return;
         super.onSaveInstanceState(outState);
         if (!mBoardController.isGameOver()) {
+            Crashlytics.log(String.format("SAVING BOARD [%d] width [%d] height [%d] bombs",mBoardController.getWidth(), mBoardController.getHeight(), mBoardController.getBombs()));
             outState.putParcelable(BOARD, mBoardController);
         }
     }
