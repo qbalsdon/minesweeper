@@ -1,3 +1,5 @@
+# DEPRECATED: This project is no longer maintained
+
 # minesweeper
 Minesweeper Game I wrote as a demo app
 
